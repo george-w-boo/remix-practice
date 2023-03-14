@@ -1,4 +1,5 @@
 import { Outlet } from "@remix-run/react";
+// import ExpensesHeader from "~/components/navigation/ExpensesHeader";
 import ExpensesList from '~/components/expenses/ExpensesList';
 import expensesStyles from '~/styles/expenses.css';
 

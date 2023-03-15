@@ -18,6 +18,8 @@ export async function action({ request }) {
   const formData = await request.formData();
   const credentials = Object.fromEntries(formData);
 
+  console.log(credentials);
+
   // TODO: validate user input
 
   if (authMode === 'login') {

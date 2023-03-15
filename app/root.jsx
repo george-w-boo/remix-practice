@@ -46,7 +46,6 @@ export default function App() {
 }
 
 export function CatchBoundary() {
-  console.log('catch boundary');
   const caughtResponse = useCatch();
 
   return <Document title={caughtResponse.statusText}>
@@ -59,14 +58,11 @@ export function CatchBoundary() {
   </Document>
 }
 
-export function ErrorBoundary() {
-  console.log('catch boundary');
-  const caughtResponse = useCatch();
-
-  return <Document title={caughtResponse.statusText}>
+export function ErrorBoundary({error}) {
+  return <Document title={'An error occurred...'}>
     <main>
-      <Error title={caughtResponse.statusText}>
-        <p>{caughtResponse.data?.message || 'Something went wrong'}</p>
+      <Error title={'An error occurred...'}>
+        <p>{error.message || 'Something went wrong'}</p>
         <p>Back to <Link to="/">safety</Link>.</p>
       </Error>
     </main>

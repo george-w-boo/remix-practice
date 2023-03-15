@@ -1,8 +1,13 @@
-import { Link, useActionData } from "@remix-run/react";
+import { Form, Link, useActionData, useNavigation } from "@remix-run/react";
 
 function ExpenseForm() {
   const validationErrors = useActionData();
+  const { state } = useNavigation();
+
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
+
+  const isSubmitting = state !== 'idle';
+  const submitBtnText = isSubmitting ? 'Saving...' : 'Save Expense'
 
   // const submit = useSubmit(); // import from from "@remix-run/react"
 
@@ -19,7 +24,7 @@ function ExpenseForm() {
 
 
   return (
-    <form
+    <Form
       method="post"
       className="form"
       id="expense-form"
@@ -55,10 +60,10 @@ function ExpenseForm() {
         </ul>
       )}
       <div className="form-actions">
-        <button>Save Expense</button>
+        <button disabled={isSubmitting}>{submitBtnText}</button>
         <Link to={-1}>Cancel</Link>
       </div>
-    </form>
+    </Form>
   );
 }
 

@@ -43,8 +43,9 @@ export async function action({ params, request }) {
   
     return redirect('/expenses');
   } else if (request.method === 'DELETE') {
-    deleteExpense(expenseId);
+    await deleteExpense(expenseId);
 
     return redirect('/expenses');
+    // return { deletedId: expenseId };
   }
 }

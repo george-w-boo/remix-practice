@@ -11,6 +11,10 @@ function ExpenseForm() {
   const expensesData = matches.find(match => match.id === 'routes/_app.expenses').data;
   const expenseData = expensesData.find(expense => expense.id === params.id);
 
+  if (params.id && !expenseData) {
+    return <p>Invalid expense id</p>
+  }
+
   const today = new Date().toISOString().slice(0, 10); // yields something like 2023-09-10
 
   const isSubmitting = state !== 'idle';

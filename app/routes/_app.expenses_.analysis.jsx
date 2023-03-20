@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useCatch } from "@remix-run/react";
+import { useLoaderData, useCatch } from "@remix-run/react";
 
 import ExpenseStatistics from '~/components/expenses/ExpenseStatistics';
 import Chart from '~/components/expenses/Chart';

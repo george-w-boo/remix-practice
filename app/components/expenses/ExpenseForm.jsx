@@ -6,7 +6,6 @@ function ExpenseForm() {
   const { state } = useNavigation();
   const matches = useMatches();
   const params = useParams();
-  console.log(matches);
 
   const expensesData = matches.find(match => match.id === 'routes/_app.expenses').data;
   const expenseData = expensesData.find(expense => expense.id === params.id);

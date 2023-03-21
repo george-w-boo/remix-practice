@@ -37,10 +37,10 @@ export async function action({ request }) {
       redirect('/expenses');
     }
   } catch (error) {
-    if (error.status === 402) {
+    if (error.status === 422) {
       return { credentials: error.message }
     }
-  }
 
-  return null;
+    return error;
+  }
 }
